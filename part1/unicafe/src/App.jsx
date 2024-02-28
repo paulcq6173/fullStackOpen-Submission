@@ -2,13 +2,11 @@ import { useState } from "react";
 import "./styles/global.css";
 
 const StatisticLine = (props) => {
-  const isPositive = props.text === "positive: ";
+  const { text } = props;
 
   return (
     <span>
-      {props.text}
-      {props.value}
-      {isPositive && " %"}
+      {text}
       <br />
     </span>
   );
@@ -61,7 +59,7 @@ const Statistics = (props) => {
             <td>
               <StatisticLine text="positive " />
             </td>
-            <td>{percentage}</td>
+            <td>{percentage} %</td>
           </tr>
         </tbody>
       </table>
