@@ -1,19 +1,16 @@
-import { useState } from "react";
 import CountryDetails from "./CountryDetail";
 
 const CountryLayout = ({ props, setCountries }) => {
   let array = props;
-  const [showDetail, setShowDetail] = useState(false);
   const handleShowClick = (event) => {
     const selectedName = event.currentTarget.value;
-    const filteredArr = array.filter((e) => e.name.common === selectedName);
-    setCountries(filteredArr);
-    setShowDetail(true);
+    const country = array.filter((e) => e.name.common === selectedName);
+    setCountries(country);
   };
-  if (array.length === 1 || showDetail) {
+  if (array.length === 1) {
     return (
       <div>
-        <CountryDetails props={array[0]} setShowDetail={setShowDetail} />
+        <CountryDetails props={array[0]} />
       </div>
     );
   }

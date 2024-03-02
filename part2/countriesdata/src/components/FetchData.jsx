@@ -8,8 +8,7 @@ export async function FetchWeatherData(location) {
     const rawData = await Response.json();
     const geoData = rawData[0];
     console.log(`geoData: ${geoData}`);
-    const lat = geoData.lat;
-    const lon = geoData.lon;
+    const { lat, lon } = geoData;
     const weatherDataRes = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${KEY}`
     );
